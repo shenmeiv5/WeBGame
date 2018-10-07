@@ -1,0 +1,239 @@
+﻿@{ Layout = null;}
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#171a21">
+    <title>@RenderSection("Title")</title>
+    <link rel="shortcut icon" href="https://store.steampowered.com/favicon.ico" type="image/x-icon">
+    <link href="/css/motiva_sans.css" rel="stylesheet" type="text/css">
+    <link href="/css/shared_global.css" rel="stylesheet" type="text/css">
+    <link href="/css/buttons.css" rel="stylesheet" type="text/css">
+    <link href="/css/store.css" rel="stylesheet" type="text/css">
+    <link href="/css/home.css" rel="stylesheet" type="text/css">
+    <link href="/css/creator_hub.css" rel="stylesheet" type="text/css">
+    <link href="/css/shared_responsive.css" rel="stylesheet" type="text/css">
+ 
+
+</head>
+<body class="v6 infinite_scrolling responsive_page">
+
+    <div class="responsive_page_frame with_header">
+
+        <div class="responsive_page_menu_ctn mainmenu">
+            <div class="responsive_page_menu" id="responsive_page_menu">
+                <div class="mainmenu_contents">
+                    <div class="mainmenu_contents_items">
+                        <a class="menuitem" href="https://store.steampowered.com/login/?redir=&amp;redir_ssl=1">
+                            登录
+                        </a>
+                        <a class="menuitem supernav" href="https://store.steampowered.com/" data-tooltip-type="selector" data-tooltip-content=".submenu_store">
+                            商店
+                        </a>
+                        <div class="submenu_store" style="display: none;" data-submenuid="store">
+                            <a class="submenuitem" href="https://store.steampowered.com/">精选</a>
+                            <a class="submenuitem" href="https://store.steampowered.com/explore/">探索</a>
+                            <a class="submenuitem" href="https://store.steampowered.com/curators/">鉴赏家</a>
+                            <a class="submenuitem" href="https://steamcommunity.com/my/wishlist/">愿望单</a>
+                            <a class="submenuitem" href="https://store.steampowered.com/news/">新闻</a>
+                            <a class="submenuitem" href="https://store.steampowered.com/stats/">统计</a>
+                        </div>
+
+
+                        <a class="menuitem supernav" style="display: block" href="https://steamcommunity.com/" data-tooltip-type="selector" data-tooltip-content=".submenu_community">
+                            社区
+                        </a>
+                        <div class="submenu_community" style="display: none;" data-submenuid="community">
+                            <a class="submenuitem" href="https://steamcommunity.com/">主页</a>
+                            <a class="submenuitem" href="https://steamcommunity.com/discussions/">讨论</a>
+                            <a class="submenuitem" href="https://steamcommunity.com/workshop/">创意工坊</a>
+                            <a class="submenuitem" href="https://steamcommunity.com/market/">市场</a>
+                            <a class="submenuitem" href="https://steamcommunity.com/?subsection=broadcasts">实况直播</a>
+                        </div>
+
+
+
+
+
+                        <a class="menuitem" href="https://help.steampowered.com/zh-cn/">
+                            客服
+                        </a>
+
+                        <div class="minor_menu_items">
+                            <div class="menuitem change_language_action">
+                                更改语言
+                            </div>
+                            <div class="menuitem" onclick="Responsive_RequestDesktopView();">
+                                查看桌面版网站
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mainmenu_footer_spacer"></div>
+                    <div class="mainmenu_footer">
+                        <div class="mainmenu_footer_logo"><img src="https://steamstore-a.akamaihd.net/public/shared/images/responsive/logo_valve_footer.png"></div>
+                        © Valve Corporation。保留所有权利。所有商标均为其在美国及其它国家/地区的各自持有者所有。							<span class="mainmenu_valve_links">
+                            <a href="https://store.steampowered.com/privacy_agreement/" target="_blank">Privacy Policy</a>
+                            &nbsp;| &nbsp;<a href="http://www.valvesoftware.com/legal.htm" target="_blank">Legal</a>
+                            &nbsp;| &nbsp;<a href="https://store.steampowered.com/subscriber_agreement/" target="_blank">Steam Subscriber Agreement</a>
+                            &nbsp;| &nbsp;<a href="https://store.steampowered.com/steam_refunds/" target="_blank">Refunds</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="responsive_page_content">
+
+            <div id="global_header">
+                <div class="content">
+                    <div class="logo">
+                        <a href="https://store.steampowered.com/">
+                            <img src="/images/logo.png" width="176" height="44">
+                        </a>
+                        <!--[if lt IE 7]>
+                            <style type="text/css">
+                                #logo_holder img { filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0); }
+                                #logo_holder { display: inline-block; width: 176px; height: 44px; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://steamstore-a.akamaihd.net/public/images/v5/globalheader_logo.png'); }
+                            </style>
+                        <![endif]-->
+                    </div>
+
+                    <div class="supernav_container">
+                        <a class="menuitem supernav" href="https://store.steampowered.com/" data-tooltip-type="selector" data-tooltip-content=".submenu_store">
+                            商店
+                        </a>
+                        <div class="submenu_store" style="display: none;" data-submenuid="store">
+                            <a class="submenuitem" href="https://store.steampowered.com/">精选</a>
+                            <a class="submenuitem" href="https://store.steampowered.com/explore/">探索</a>
+                            <a class="submenuitem" href="https://store.steampowered.com/curators/">鉴赏家</a>
+                            <a class="submenuitem" href="https://steamcommunity.com/my/wishlist/">愿望单</a>
+                            <a class="submenuitem" href="https://store.steampowered.com/news/">新闻</a>
+                            <a class="submenuitem" href="https://store.steampowered.com/stats/">统计</a>
+                        </div>
+
+
+                        <a class="menuitem supernav" style="display: block" href="https://steamcommunity.com/" data-tooltip-type="selector" data-tooltip-content=".submenu_community">
+                            社区
+                        </a>
+                        <div class="submenu_community" style="display: none;" data-submenuid="community">
+                            <a class="submenuitem" href="https://steamcommunity.com/">主页</a>
+                            <a class="submenuitem" href="https://steamcommunity.com/discussions/">讨论</a>
+                            <a class="submenuitem" href="https://steamcommunity.com/workshop/">创意工坊</a>
+                            <a class="submenuitem" href="https://steamcommunity.com/market/">市场</a>
+                            <a class="submenuitem" href="https://steamcommunity.com/?subsection=broadcasts">实况直播</a>
+                        </div>
+
+                        <a class="menuitem" href="https://store.steampowered.com/about/">
+                            关于
+                        </a>
+
+                        <a class="menuitem" href="https://help.steampowered.com/zh-cn/">
+                            客服
+                        </a>
+
+                    </div>
+                    <div class="search_area">
+                        <div id="store_search">
+                            <form id="searchform" name="searchform" method="get" action="https://store.steampowered.com/search/" onsubmit="return SearchSuggestCheckTerm(this);">
+                                <input type="hidden" name="snr" value="1_4_4__12">
+                                <div class="searchbox">
+                                    <input id="store_nav_search_term" name="term" type="text" class="default" placeholder="搜索商店" size="22" autocomplete="off">
+                                    <a href="#" id="store_search_link" onclick="var $Form = $J(this).parents('form'); $Form.submit(); return false;"><img src="https://steamstore-a.akamaihd.net/public/images/blank.gif"></a>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="searchterm_options" class="search_suggest popup_block_new" style="display: none;">
+                            <div class="popup_body" style="border-top: none;">
+                                <div id="search_suggestion_contents">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="global_actions">
+                        <div id="global_action_menu">
+                            <div class="header_installsteam_btn header_installsteam_btn_green">
+
+                                <a class="header_installsteam_btn_content" href="https://store.steampowered.com/about/">
+                                    登录
+                                </a>
+                            </div>
+
+
+                            @* <a class="global_action_link" href="https://store.steampowered.com/login/?redir=&amp;redir_ssl=1">登录</a> *@
+                            @* &nbsp;|&nbsp; *@
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container body-content">
+                @RenderBody()
+                <footer>
+                    <div class="responsive_page_template_content">
+                        <div id="footer" class="small_footer">
+                            <div class="footer_content">
+
+                                <div class="rule"></div>
+                                <div id="footer_logo_steam"><img src="https://steamstore-a.akamaihd.net/public/images/v6/logo_steam_footer.png" alt="Valve Software" border="0"></div>
+
+                                <div id="footer_logo"><a href="http://www.valvesoftware.com" target="_blank" rel="noreferrer"><img src="https://steamstore-a.akamaihd.net/public/images/v6/logo_valve_footer.png" alt="Valve Software" border="0"></a></div>
+                                <div id="footer_text">
+                                    <div>©2018 Valve Corporation。保留所有权利。所有商标均为其在美国及其它国家/地区的各自持有者所有。</div>
+                                    <div>
+                                        所有的价格均已包含增值税（如适用）。&nbsp;&nbsp;
+
+                                        <a href="https://store.steampowered.com/privacy_agreement/" target="_blank" rel="noreferrer">隐私政策</a>
+                                        &nbsp; | &nbsp;
+                                        <a href="https://store.steampowered.com/legal/" target="_blank" rel="noreferrer">法律信息</a>
+                                        &nbsp; | &nbsp;
+                                        <a href="https://store.steampowered.com/subscriber_agreement/" target="_blank" rel="noreferrer">Steam 订户协议</a>
+                                        &nbsp; | &nbsp;
+                                        <a href="https://store.steampowered.com/steam_refunds/" target="_blank" rel="noreferrer">退款</a>
+
+                                    </div>
+                                    <div class="responsive_optin_link">
+                                        <div class="btn_medium btnv6_grey_black" onclick="Responsive_RequestMobileView()">
+                                            <span>查看移动版网站</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+                                <div style="clear: left;"></div>
+                                <br>
+
+                                <div class="rule"></div>
+
+                                <div class="valve_links">
+                                    <a href="http://www.valvesoftware.com/about.html" target="_blank" rel="noreferrer">关于 Valve</a>
+                                    &nbsp; | &nbsp;<a href="http://www.steampowered.com/steamworks/" target="_blank" rel="noreferrer">Steamworks</a>
+                                    &nbsp; | &nbsp;<a href="http://www.valvesoftware.com/jobs.html" target="_blank" rel="noreferrer">工作</a>
+                                    &nbsp; | &nbsp;<a href="https://partner.steamgames.com/steamdirect" target="_blank" rel="noreferrer">Steam 分销</a>
+                                    &nbsp; | &nbsp;<a href="https://store.steampowered.com/digitalgiftcards/" target="_blank" rel="noreferrer">礼物卡</a>
+                                    &nbsp; | &nbsp;<a href="https://steamcommunity.com/linkfilter/?url=http://www.facebook.com/Steam" target="_blank" rel="noopener"><img src="https://steamstore-a.akamaihd.net/public/images/ico/ico_facebook.gif"> Steam</a>
+                                    &nbsp; | &nbsp;<a href="http://twitter.com/steam_games" target="_blank" rel="noreferrer"><img src="https://steamstore-a.akamaihd.net/public/images/ico/ico_twitter.gif"> steam_games</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </footer>
+            </div>
+            
+        </div>
+    </div>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
