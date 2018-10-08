@@ -17,7 +17,7 @@
     <link href="/css/home.css" rel="stylesheet" type="text/css">
     <link href="/css/creator_hub.css" rel="stylesheet" type="text/css">
     <link href="/css/shared_responsive.css" rel="stylesheet" type="text/css">
- 
+    @RenderSection("Header")
 
 </head>
 <body class="v6 infinite_scrolling responsive_page">
@@ -103,8 +103,23 @@
                             </style>
                         <![endif]-->
                     </div>
+                    
+                    
+                    <div class="search_area">
+                        <div id="store_search">
+                            <form id="searchform" name="searchform" method="get" action="https://store.steampowered.com/search/" onsubmit="return SearchSuggestCheckTerm(this);">
+                                <input type="hidden" name="snr" value="1_4_4__12">
+                                <div class="searchbox">
+                                    <input id="store_nav_search_term" name="term" type="text" class="default" placeholder="搜索商店" size="22" autocomplete="off">
+                                    <a href="#" id="store_search_link" onclick="var $Form = $J(this).parents('form'); $Form.submit(); return false;"><img src="https://steamstore-a.akamaihd.net/public/images/blank.gif"></a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
                     <div class="supernav_container">
+
+                        
                         <a class="menuitem supernav" href="https://store.steampowered.com/" data-tooltip-type="selector" data-tooltip-content=".submenu_store">
                             商店
                         </a>
@@ -138,23 +153,7 @@
                         </a>
 
                     </div>
-                    <div class="search_area">
-                        <div id="store_search">
-                            <form id="searchform" name="searchform" method="get" action="https://store.steampowered.com/search/" onsubmit="return SearchSuggestCheckTerm(this);">
-                                <input type="hidden" name="snr" value="1_4_4__12">
-                                <div class="searchbox">
-                                    <input id="store_nav_search_term" name="term" type="text" class="default" placeholder="搜索商店" size="22" autocomplete="off">
-                                    <a href="#" id="store_search_link" onclick="var $Form = $J(this).parents('form'); $Form.submit(); return false;"><img src="https://steamstore-a.akamaihd.net/public/images/blank.gif"></a>
-                                </div>
-                            </form>
-                        </div>
-                        <div id="searchterm_options" class="search_suggest popup_block_new" style="display: none;">
-                            <div class="popup_body" style="border-top: none;">
-                                <div id="search_suggestion_contents">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
 
                     <div id="global_actions">
                         <div id="global_action_menu">
