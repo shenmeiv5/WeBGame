@@ -572,9 +572,9 @@ html.force_desktop body #footer_responsive_optin_spacer {
 }
 
 .responsive_page_template_content {
-    min-height:100%; 
+    min-height:100%;
     height: auto;
-    height: 100%; /*IE6不识别min-height*/ 
+    height: 100%; /*IE6不识别min-height*/
     position: relative;
 }
 

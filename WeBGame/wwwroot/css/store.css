@@ -270,9 +270,10 @@ body.v6 h3 {
 			font-weight: normal;
 }
 
-body.v6 .page_content {
-	width: 940px;
-	margin: 0 auto;
+.container_content {
+    margin-top: 40px;
+    width: 940px;
+    margin: 0 auto;
 }
 
 .ellipsis {
