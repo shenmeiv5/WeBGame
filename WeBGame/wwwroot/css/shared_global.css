@@ -1,5 +1,3 @@
-
-
 	/* Avatars */
 
 .playerAvatar,
@@ -10,7 +8,6 @@
 	position: relative;
 	border-radius: 0;
 	padding: 1px;
-
 }
 
 /* Offline State */
@@ -20,7 +17,6 @@
 .appHubIconHolder.offline,
 .avatar_block_status_offline,
 .appHubIconHolder.ignored {
-
 	background: -webkit-linear-gradient( top, rgba(106,106,106,1) 5%, rgba(85,85,85,1) 95%);background: linear-gradient( to bottom, rgba(106,106,106,1) 5%, rgba(85,85,85,1) 95%);	/* IE <= 9 doesn't support rounded corners and gradient.  The gradient isn't too noticable so just disable the filter in IE9 */
 	filter: none;
 }
@@ -63,7 +59,6 @@
 .appHubIconHolder.in-game img,
 .avatar_block_status_in-game img {
 	background: -webkit-linear-gradient( top, #66812e 5%, #59702b 95%);background: linear-gradient( to bottom, #66812e 5%, #59702b 95%);}
-
 
 /* Golden State */
 .playerAvatar.golden,
@@ -302,7 +297,6 @@ background: -webkit-linear-gradient( top, #525151 5%, #292827 95%);background: l
 	height: 1px;
 }
 
-
 .miniprofile_arrow.left .miniprofile_arrow_inner {
 	left: 2px;
 }
@@ -310,7 +304,6 @@ background: -webkit-linear-gradient( top, #525151 5%, #292827 95%);background: l
 .miniprofile_arrow.right .miniprofile_arrow_inner {
 	right: 2px;
 }
-
 
 .miniprofile_teammember {
 	margin-top: 5px;
@@ -326,7 +319,6 @@ background: -webkit-linear-gradient( top, #525151 5%, #292827 95%);background: l
 			font-family: "Motiva Sans", Sans-serif;
 		font-weight: normal; /* normal */
 
-		
 	background-repeat: no-repeat;
 	background-position: top left;
 
@@ -351,7 +343,6 @@ background: -webkit-linear-gradient( top, #525151 5%, #292827 95%);background: l
 	background-image: url( 'https://steamstore-a.akamaihd.net/public/shared/images/promo/summer2014/minip_purple.png' );
 }
 
-
 /*
  * GENERIC POPUP
  */
@@ -375,7 +366,6 @@ span.popup_menu_pulldown_indicator {
 	width: 9px;
 	height: 4px;
 }
-
 
 .popup_block_new {
 	z-index: 200;
@@ -409,7 +399,6 @@ span.popup_menu_pulldown_indicator {
 	position: relative;
 
 	background-color: #171a21;
-
 }
 
 body.v6 .popup_block_new .popup_body.popup_menu {
@@ -436,7 +425,6 @@ body.v6 .popup_block_new .popup_body.popup_menu {
 		font-size: 14px;
 		line-height: 18px;
 	}
-
 }
 	html.responsive.touch .popup_menu .popup_menu_item {
 		font-size: 14px;
@@ -455,7 +443,6 @@ body.v6 .popup_block_new .popup_body.popup_menu {
 	color: #ffffff;
 	text-decoration: none;
 }
-
 
 .popup_menu_subheader {
 	color: #9e9995;
@@ -489,14 +476,11 @@ body.v6 .popup_block_new .popup_body.popup_menu {
 	width: 138px;
 }
 
-
 .popup_menu .hr {
 	height: 1px;
 	background-color: #82807c;
 	margin: 10px 12px 0 12px;
 }
-
-
 
 .friendPlayerLevel {
 	display: inline-block;
@@ -510,7 +494,6 @@ body.v6 .popup_block_new .popup_body.popup_menu {
 
 	cursor: default;
 }
-
 
 .friendPlayerLevel .friendPlayerLevelNum {
 	color: #e5e5e5;
@@ -673,8 +656,6 @@ body.v6 .popup_block_new .popup_body.popup_menu {
 	background-position: 0 -288px;
 }
 
-
-
 .newmodal {
 	position: absolute;
 
@@ -745,7 +726,6 @@ body.v6 .popup_block_new .popup_body.popup_menu {
 }
 
 .newmodal_content {
-
 	background-color: #232b34;
 
 	overflow: auto;
@@ -945,8 +925,6 @@ select.blueish {
 	right: 0;
 }
 
-
-
 /*
  * HEADER
  */
@@ -962,7 +940,6 @@ div.page_content {
 	width: 940px;
 	margin: 0px auto;
 }
-
 
 div#global_header {
 	background: #171a21;
@@ -1155,7 +1132,6 @@ a.global_header_toggle_button:hover {
 	font-size: 12px;
 			font-family: "Motiva Sans", Sans-serif;
 		font-weight: bold; /* bold */
-
 		}
 
 .global_header_toggle_button.green,
@@ -1196,7 +1172,6 @@ a.global_header_toggle_button:hover {
 a.global_header_account_alert:hover {
 	color: #ffffff;
 }
-
 
 div#global_header .menuitem_new
 {
@@ -1304,9 +1279,7 @@ a.pagelink:hover {
 	color: #ffffff;
 }
 
-
 /* steam inbox */
-
 
 /* notification box */
 
@@ -1600,8 +1573,6 @@ img.dynamiclink_sketchfab_play_overlay_image
 	height: 50px;
 }
 
-
-
 /* ugc with adult content */
 .ugc.has_adult_content
 {
@@ -1758,8 +1729,6 @@ background: -webkit-linear-gradient( top, #e3eaef 5%, #c7d5e0 95%);background: l
 	color: #ffffff;
 	background-color: #67c1f5;
 }
-
-
 
 .adult_content_age_gate_dialog {
 	text-align: center;
@@ -2104,17 +2073,14 @@ body.v6 #footer_nav .popup_menu .hr{
 }
 
 .v_scrollbar.vertical > .handle {
-
 	height: 24px;
 	width: 14px;
 }
 
 .v_scrollbar.horizontal > .handle {
-
 	height: 14px;
 	width: 24px;
 }
-
 
 .LoadingWrapper
 {
@@ -2163,7 +2129,6 @@ body.v6 #footer_nav .popup_menu .hr{
 		background-color: #67c1f5;
 	}
 }
-
 
 @-webkit-keyframes loading_throbber_bar
 {
@@ -2251,7 +2216,6 @@ body.v6 #footer_nav .popup_menu .hr{
 	html.responsive .newmodal_background {
 		position: absolute;
 	}
-
 }
 	html.responsive.touch .newmodal {
 		min-width: 0;

@@ -1,5 +1,3 @@
-using System;
-
 namespace WeBGame.Models
 {
     public class ErrorViewModel
