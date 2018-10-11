@@ -87,5 +87,5 @@ namespace WeBGame.Repositories
     /// 默认Long类型主键仓储接口
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
-    public interface IRepository<TEntity> : IRepository<TEntity, long> where TEntity : Entity { }
+    public interface IRepository<TEntity> : IRepository<TEntity, int> where TEntity : Entity { }
 }
