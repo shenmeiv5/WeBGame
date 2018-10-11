@@ -87,6 +87,7 @@ function 精选_当鼠标离开时取消图片(eventHandler: number) {
     //let focusEle = document.getElementsByClassName("focus")[0].getElementsByClassName("main_capsule")[0].getElementsByClassName("screenshot");
     //focusEle[eventHandler].classList.remove("focus");
     document.getElementsByClassName("focus")[1].classList.remove("focus");
+    是否滚动 = true;
 }
 
 
