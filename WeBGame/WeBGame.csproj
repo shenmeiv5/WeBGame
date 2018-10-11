@@ -6,8 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\js\store.js" />
-    <Content Remove="wwwroot\js\store.js.map" />
     <Content Remove="wwwroot\js\store.ts" />
   </ItemGroup>
 
