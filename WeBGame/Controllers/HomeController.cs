@@ -8,7 +8,7 @@ namespace WeBGame.Controllers
     {
         public IActionResult Index()
         {
-            return View("BaseLayout");
+            return Redirect("Store");
         }
 
         public IActionResult About()

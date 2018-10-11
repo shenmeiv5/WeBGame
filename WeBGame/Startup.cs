@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WeBGame.Models;
+using WeBGame.Repositories;
+using WeBGame.Service;
 
 namespace WeBGame
 {
@@ -17,6 +21,18 @@ namespace WeBGame
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            //获取数据库连接字符串
+            var sqlConnectionString = Configuration.GetConnectionString("Default");
+
+            //添加数据上下文
+            services.AddDbContext<WbDbContext>(options =>
+                options.UseSqlServer(sqlConnectionString)
+            );
+
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
+
             services.AddMvc();
         }
 
