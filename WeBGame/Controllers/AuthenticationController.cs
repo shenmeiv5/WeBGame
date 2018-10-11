@@ -7,7 +7,7 @@ namespace WeBGame.Controllers
         // GET
         public IActionResult Index()
         {
-            return View();
+            return View("Registration");
         }
 
         [HttpPost]

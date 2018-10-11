@@ -1,0 +1,215 @@
+﻿@model User
+@section Title{注册}
+
+@section Header
+    {
+    <link href="https://steamstore-a.akamaihd.net/public/shared/css/joinsteam.css?v=.Z2M3hiAsR18G" rel="stylesheet" type="text/css">
+    <link href="https://steamstore-a.akamaihd.net/public/shared/css/motiva_sans.css?v=FAK4O46_mOLB" rel="stylesheet" type="text/css">
+    <link href="https://steamstore-a.akamaihd.net/public/shared/css/shared_global.css?v=ZDQlNd7AVFLY" rel="stylesheet" type="text/css">
+    <link href="https://steamstore-a.akamaihd.net/public/shared/css/buttons.css?v=aSZ3GswxT2FB" rel="stylesheet" type="text/css">
+    <link href="https://steamstore-a.akamaihd.net/public/css/v6/store.css?v=ZutsQVgVS-68" rel="stylesheet" type="text/css">
+    <link href="https://steamstore-a.akamaihd.net/public/shared/css/login.css?v=urY8LqkoziPf" rel="stylesheet" type="text/css">
+
+}
+
+@BodyContent{
+<div class="page_content">
+
+
+    <div class="page_title_area game_title_area">
+        <div class="breadcrumbs">
+            <div class="blockbg">
+                <a href="https://store.steampowered.com/">主页</a>
+            </div>
+            <div style="clear: left;"></div>
+        </div>
+        <div class="game_name">
+            <div class="blockbg">
+                创建帐户
+            </div>
+            <div style="clear: left;"></div>
+        </div>
+    </div>
+
+
+    <div class="leftcol">
+
+
+        <div id="error_display" style="display: none;"></div>
+
+        <div class="checkout_content_box" id="cart_area">
+            <form id="create_account" name="create_account" action="" onsubmit="CreateAccount(); return false; " method="POST">
+                <input type="hidden" name="lt" id="lt" value="0">
+                <div id="account_form_box">
+                    <div class="join_form">
+                        <div class="form_row">
+                            <div class="form_area">
+                                <label asp-for="Email">您的邮箱地址</label>
+                                <input asp-for="Email"/>
+                                <br/><br/>
+                                <label asp-for="UserName">您的用户名</label>
+                                <input asp-for="UserName"/>
+                                <br/><br/>
+                                <label asp-for="Password">您的密码</label>
+                                <input asp-for="Password" type="password"/>
+                                <br/><br/>
+                                <label asp-for="Password">请重新输入密码</label>
+                                <input id="reinput_password" type="password"/>
+                                <br/><br/>
+                            </div>
+                            <div class="form_notes">
+                                <br>
+                                <p>您的电子邮件地址用于确认购买并帮助您管理对 Steam 帐户的访问。</p>
+                                <br/><br/><br/>
+                                <p>用户名是您希望在WeBGame上对其他用户显示的名称</p>
+                                <br/><br/><br/><br/>
+                                <p>密码必须大于六位，且必须包含字母和数字</p>
+                                <br/><br/><br/>
+                                <p>请确保密码一致</p>
+                            </div>
+                            <div style="clear: left;"></div>
+                        </div>
+                        <div class="form_row">
+                            <div class="form_area">
+
+                            </div>
+                            <div style="clear: left;"></div>
+                        </div>
+
+                        <div class="rule"></div>
+
+                        <div class="form_row">
+                            <p id="instructions">请复查以上协议，并通过选择页面底部的复选框同意此协议。  您必须同意这些协议条款才能继续。</p>
+                            <br>
+                            <div id="ssa_agree">
+                                <input type="hidden" name="action" value="submit_agreement">
+                                <input type="checkbox" name="i_agree_check" id="i_agree_check"><label for="i_agree_check" id="label_agree">我同意并且已年满 13 周岁</label>
+                            </div>
+                            <div id="priv_and_sub">
+                                <a id="createAccountButton" class="btnv6_blue_hoverfade btn_medium" href="javascript:CreateAccount();" style="float: right;">
+                                    <span>继续</span>
+                                </a>
+
+                                <div id="privacy_link"><a href="javascript:void window.open( 'https://store.steampowered.com/privacy_agreement/', '_blank');">Valve 隐私政策</a></div>
+
+                                <div style="clear: right;"></div>
+                            </div>
+                            <div id="ssa_submit">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- End left Column -->
+
+    <div id="email_verification_dialog" class="email_verification_container" style="display: none;">
+
+        <div class="email_verification_header_container">
+            <div class="email_verification_header">请验证 <span class="insert_verification_email"></span></div>
+            <div class="email_verification_subheader">请查看 Steam 发送给您的一封电子邮件并点击其中的链接来完成您 Steam 帐户的设置。</div>
+
+            <div class="LoadingWrapper">
+                <div class="LoadingThrobber">
+                    <div class="Bar Bar1"></div>
+                    <div class="Bar Bar2"></div>
+                    <div class="Bar Bar3"></div>
+                </div>
+                <div class="LoadingText">正在等待电子邮件验证…</div>
+            </div>
+
+        </div>
+        <div class="email_verification_troubleshooting">
+            <div>如果您尚未收到我们的电子邮件，请尝试下述的步骤来排除故障：</div>
+            <ul>
+                <li>复查您的电子邮件地址“<span class="insert_verification_email"></span>”拼写正确无误。</li>
+                <li>请检查您的垃圾邮件和已删除邮件目录下是否有来自 steampowered.com 的邮件。有时电子邮件会被您的电子邮箱服务商错误的识别为垃圾邮件。</li>
+                <li>稍等片刻。有时电子邮件服务器运行缓慢需要花一些时间来接收电子邮件。</li>
+            </ul>
+            <div>某些电子邮件提供商就是无法接收 Steam 的邮件。如果您依然无法找到我们的邮件，我们建议您在 Steam 使用一个不同的电子邮件地址。<span class="email_verification_changeemail" onclick="ChangeEmail();">点击这里</span>来更改您的电子邮件地址。</div>
+        </div>
+    </div>
+
+    <div id="age_gate_dialog" class="age_gate_container" style="display: none;">
+        <div class="age_gate_buttons_container">
+            <a id="underAgeButton" class="btnv6_blue_hoverfade btn_medium" href="javascript:GetParentalConsentEmail();" style="float: left;">
+                <span>我不满 <span class="insert_min_age"></span> 周岁</span>
+            </a>
+            <a id="overAgeButton" class="btnv6_blue_hoverfade btn_medium" href="javascript:StartCreationSession();" style="float: right;">
+                <span>我年满 <span class="insert_min_age"></span> 周岁</span>
+            </a>
+        </div>
+        <div class="age_gate_footer_container" style="clear: left;">
+            <p>此信息只用于创建帐户，不会保存</p>
+        </div>
+    </div>
+
+    <div id="parental_consent_email_dialog" class="parental_consent_email_container" style="display: none;">
+        <div class="parental_consent_email_header_container">
+            <div class="parental_consent_email_header">我们需要向你的父母或监护人发送电子邮件，获得他们同意，才能为你创建 Steam 帐户。</div>
+        </div>
+        <div class="parental_consent_email_body_container">
+            <br>
+            <div class="parental_consent_email_body">Steam 使用视为个人隐私的数据，并要求您所在国家/地区中未满 16 周岁的用户获得家长同意。</div>
+            <div class="form_area">
+                <br>
+                <label for="parental_email">父母或监护人电子邮件地址：</label>
+                <input type="text" maxlength="255" name="parental_email" id="parental_email">
+            </div>
+        </div>
+        <br>
+        <div id="error_display_parental" style="display: none; clear: left;"></div>
+        <div class="parental_consent_email_footer_container" style="clear: left;">
+            <br>
+            <p style="float:left;">此信息只用于创建帐户，不会保存</p>
+            <a id="sendParentalConsentRequestButton" class="btnv6_blue_hoverfade btn_medium" href="javascript:StartCreationSessionParentalConsent();" style="float: right;">
+                <span>继续</span>
+            </a>
+        </div>
+    </div>
+
+    <div id="parental_consent_requested_dialog" class="parental_consent_requested_container" style="display: none;">
+        <div class="parental_consent_requested_header_container">
+            <div class="parental_consent_requested_header">太好了！我们已经给您的父母或监护人发送了电子邮件，正在等待回应。</div>
+        </div>
+        <div class="parental_consent_requested_body_container">
+            <br>
+            <div class="parental_consent_requested_body">当您能继续创建帐户时，我们会给您的电子邮箱地址 <span class="insert_verification_email"></span> 发送邮件。</div>
+        </div>
+        <div class="parental_consent_requested_footer_container" style="clear: left;">
+            <br>
+            <div style="float:left;">现在你可以关闭这个窗口了。</div>
+        </div>
+    </div>
+
+    <!-- Right Column -->
+
+    <div class="rightcol">
+        <div class="block">
+
+            <div class="block_content block_content_inner login">
+                <h2>为什么加入 STEAM？</h2>
+                <ul id="why_list">
+                    <li>购买和下载完整零售游戏</li>
+                    <li>加入 Steam 社区</li>
+                    <li>游戏时与好友聊天</li>
+                    <li>在任何电脑上都能玩</li>
+                    <li>安排游戏、比赛或 LAN 聚会</li>
+                    <li>获取自动游戏更新以及更多！</li>
+                </ul>
+                <br>
+                <img src="https://steamstore-a.akamaihd.net/public/images/v6/why_join_preview.png" width="265" height="176" border="0">
+            </div>
+            <br>
+            <a href="https://store.steampowered.com/about">了解更多 Steam 的相关信息</a>
+        </div>
+        <br/><br/><br/>
+    </div>
+    <!-- End Right Column -->
+
+
+    <br clear="all">
+</div>
+
+}

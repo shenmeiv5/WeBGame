@@ -1,0 +1,210 @@
+﻿
+body.csgo {
+    overflow-x: hidden;
+}
+
+.accountlink_csgo {
+    max-width: 450px;
+    text-align: center;
+    line-height: 20px;
+}
+
+    .accountlink_csgo, .accountlink_csgo div {
+        display: inline-block;
+        text-align: center;
+    }
+
+.login div p {
+    margin-top: 2px;
+}
+
+.csgopwbuttonclass {
+    border: 0px solid #8A66F4;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: arial, helvetica, sans-serif;
+    padding: 10px 10px 10px 10px;
+    text-decoration: none;
+    display: inline-block;
+    text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #2D749B;
+    background-image: -webkit-gradient(linear, right, left, from(#2D749B), to(#2D749B));
+    background-image: -webkit-linear-gradient(left, #2D749B, #2D749B);
+    background-image: -moz-linear-gradient(left, #2D749B, #2D749B);
+    background-image: -ms-linear-gradient(left, #2D749B, #2D749B);
+    background-image: -o-linear-gradient(left, #2D749B, #2D749B);
+    background-image: linear-gradient(to left, #2D749B, #2D749B);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#2D749B, endColorstr=#2D749B);
+}
+
+    .csgopwbuttonclass:hover {
+        border: 0px solid #9174ED;
+        background-color: #225673;
+        background-image: -webkit-gradient(linear, right, left, from(#225673), to(#388DB5));
+        background-image: -webkit-linear-gradient(left, #225673, #388DB5);
+        background-image: -moz-linear-gradient(left, #225673, #388DB5);
+        background-image: -ms-linear-gradient(left, #225673, #388DB5);
+        background-image: -o-linear-gradient(left, #225673, #388DB5);
+        background-image: linear-gradient(to left, #225673, #388DB5);
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#225673, endColorstr=#388DB5);
+    }
+
+p .csgoheadline {
+    font-size: 32px;
+}
+
+.csgo .btnv6_blue_hoverfade {
+    border-radius: 2px;
+    border: none;
+    padding: 1px;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none !important;
+    color: #67c1f5 !important;
+    background: rgba( 103, 193, 245, 0.2 );
+}
+
+.csgo .btn_medium > span, input.btn_medium {
+    padding: 0 15px;
+    font-size: 15px;
+    line-height: 30px;
+}
+
+.csgo .btnv6_blue_hoverfade > span {
+    border-radius: 2px;
+    display: block;
+    background: transparent;
+}
+
+/*these styles are in login.css - hoping that by placing them here they will magically overide for the cs:go account creation/linking pages*/
+
+.header_text.game_name {
+    font-size: 24px;
+}
+
+    .header_text.game_name div {
+        line-height: 40px;
+    }
+
+.csgo .header_text {
+    position: relative;
+    width: 616px;
+    padding-bottom: 16px;
+    color: #d6d7d8;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.csgo .join_form {
+    padding: 20px 16px;
+    position: relative;
+    background-color: #0e141c;
+    border-color: #202d48;
+    // this is the addition
+}
+
+    .csgo .join_form input[type="text"], .join_form input[type="password"] {
+        height: 18px;
+        background-color: #0e141c;
+        border-color: #202d48;
+    }
+
+.csgo .ssa_box {
+    height: 337px;
+    overflow: auto;
+    border: 1px solid #4d4b49;
+    padding: 9px;
+    line-height: 15px;
+    background-color: #0e141c;
+    border-color: #202d48;
+}
+
+/* this block is found in in store.css */
+
+.csgo div.leftcol {
+    width: 616px;
+    margin: 0 auto;
+}
+
+/* this block is from buttons.css */
+
+.csgo .btnv6_blue_hoverfade {
+    border-radius: 2px;
+    border: none;
+    padding: 1px;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none !important;
+    color: #ffffff !important;
+    background: rgba( 49, 126, 168, 0.9 );
+    text-transform: uppercase;
+}
+
+.email_verification_header {
+    margin-bottom: 20px;
+    color: #67c1f5;
+    font-size: 22px;
+}
+
+.email_verification_header_container {
+    background-color: rgba( 0, 0, 0, .3 );
+    padding: 20px;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 10px
+}
+
+.email_verification_subheader {
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.email_verification_container {
+    max-width: 750px;
+}
+
+.email_verification_troubleshooting li {
+    margin: 10px 40px;
+    list-style-type: none;
+}
+
+.email_verification_troubleshooting ul {
+    margin: 10px 0;
+}
+
+.email_verification_troubleshooting {
+    font-size: 14px;
+}
+
+.email_verification_changeemail {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+    .email_verification_changeemail:hover {
+        color: #FFF;
+    }
+
+#create_account input[type="text"] {
+    max-width: 300px;
+}
+
+.email_used_body {
+    margin: 15px 0;
+}
+
+#error_display {
+    border: 2px solid #b44040;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    background-color: rgba( 0, 0, 0, .5 );
+}
+
+    #error_display > div {
+        margin-bottom: 10px;
+    }
