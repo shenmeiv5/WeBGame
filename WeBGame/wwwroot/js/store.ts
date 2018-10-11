@@ -40,9 +40,21 @@ function 精选_跳转到(fnow: number) {
     是否滚动 = false;
 }
 
-function 精选_当鼠标滑过时变更图片() {
+function 精选_当鼠标滑过时变更图片(eventHandler: Element) {
+
+    let url1 = eventHandler.attributes.getNamedItem("data-background-image-url");
+    let url2 = eventHandler.attributes.getNamedItem("style");
+
     let foc = document.body.getElementsByClassName("focus");
-    foc[0].getElementsByClassName("main_capsule")[0].innerHTML.
+    let mainCapsule = foc[0].getElementsByClassName("main_capsule")[0];
+
+    let atp = mainCapsule.attributes.getNamedItem("data-background-image-url");
+    atp.value = url1.value;
+    mainCapsule.attributes.setNamedItem(atp);
+
+    let style = mainCapsule.attributes.getNamedItem("style");
+    style.value = url2.value;
+    mainCapsule.attributes.setNamedItem(style);
 }
 
 精选_滚动();
