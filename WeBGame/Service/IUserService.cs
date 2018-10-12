@@ -14,5 +14,7 @@ namespace WeBGame.Service
         /// <param name="password"></param>
         /// <returns></returns>
         User GetUser(string username, string password);
+
+        void AddUser(User user);
     }
 }

@@ -1,4 +1,6 @@
-﻿@model User
+﻿@using Microsoft.AspNetCore.Mvc.ModelBinding
+@using Microsoft.AspNetCore.Mvc.ModelBinding.Validation
+@model User
 @section Title{注册}
 
 @section Header
@@ -33,38 +35,43 @@
 
 
     <div class="leftcol">
-
+        <div id="error_display" style="display: none">
+            <span asp-validation-for="Email"></span><br/>
+            <span asp-validation-for="UserName"></span><br/>
+            <span asp-validation-for="Password"></span><br/>
+        </div>
 
         <div id="error_display" style="display: none;"></div>
 
         <div class="checkout_content_box" id="cart_area">
-            <form id="create_account" name="create_account" action="" onsubmit="CreateAccount(); return false; " method="POST">
+            <form id="create_account" name="create_account" asp-action="Registration" method="POST">
                 <input type="hidden" name="lt" id="lt" value="0">
                 <div id="account_form_box">
                     <div class="join_form">
                         <div class="form_row">
                             <div class="form_area">
                                 <label asp-for="Email">您的邮箱地址</label>
-                                <input asp-for="Email"/>
-                                <br/><br/>
+                                <input asp-for="Email" />
+                                <br /><br />
                                 <label asp-for="UserName">您的用户名</label>
-                                <input asp-for="UserName"/>
-                                <br/><br/>
+                                <input asp-for="UserName" />
+                                <br /><br />
                                 <label asp-for="Password">您的密码</label>
-                                <input asp-for="Password" type="password"/>
-                                <br/><br/>
+                                <input asp-for="Password" type="password" />
+                                <br /><br />
                                 <label asp-for="Password">请重新输入密码</label>
-                                <input id="reinput_password" type="password"/>
-                                <br/><br/>
+                                <input id="reinput_password" type="password" />
+                                <br /><br />
                             </div>
                             <div class="form_notes">
+
                                 <br>
                                 <p>您的电子邮件地址用于确认购买并帮助您管理对 WeBGame 帐户的访问。</p>
-                                <br/><br/><br/>
+                                <br /><br /><br />
                                 <p>用户名是您希望在WeBGame上对其他用户显示的名称</p>
-                                <br/><br/><br/><br/>
+                                <br /><br /><br /><br />
                                 <p>密码必须大于六位，且必须包含字母和数字</p>
-                                <br/><br/><br/>
+                                <br /><br /><br />
                                 <p>请确保密码一致</p>
                             </div>
                             <div style="clear: left;"></div>
@@ -86,9 +93,8 @@
                                 <input type="checkbox" name="i_agree_check" id="i_agree_check"><label for="i_agree_check" id="label_agree">我同意并且已年满 13 周岁</label>
                             </div>
                             <div id="priv_and_sub">
-                                <a id="createAccountButton" class="btnv6_blue_hoverfade btn_medium" href="javascript:CreateAccount();" style="float: right;">
-                                    <span>继续</span>
-                                </a>
+                                <input id="createAccountButton" type="submit" class="btnv6_blue_hoverfade btn_medium" style="float: right;" value="继续" />
+
 
                                 <div id="privacy_link"><a href="javascript:void window.open( 'https://store.steampowered.com/privacy_agreement/', '_blank');">Valve 隐私政策</a></div>
 
@@ -208,8 +214,17 @@
     </div>
     <!-- End Right Column -->
 
-
     <br clear="all">
 </div>
+}
 
+@section Scripts
+{
+    @if (ViewBag.isValid == false)
+    {
+     <script>
+        document.getElementById("error_display").style.display = "block"
+     </script>
+    }
+    
 }

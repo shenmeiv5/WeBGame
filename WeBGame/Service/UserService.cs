@@ -1,4 +1,5 @@
-﻿using WeBGame.Models;
+﻿using System;
+using WeBGame.Models;
 using WeBGame.Repositories;
 
 namespace WeBGame.Service
@@ -19,6 +20,14 @@ namespace WeBGame.Service
         public User GetUser(string username, string password)
         {
             return _repository.GetUser(username, password);
+        }
+
+        public void AddUser(User user)
+        {
+            user.CreateTime = user.LastLoginDateTime = DateTime.Now;
+            user.Balance = 0;
+            user.LoginTime = 0;
+            _repository.AddUser(user);
         }
     }
 }

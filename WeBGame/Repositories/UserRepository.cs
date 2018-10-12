@@ -16,5 +16,11 @@ namespace WeBGame.Repositories
         {
             return _dbContext.Set<User>().FirstOrDefault(it => it.UserName == username && it.Password == password);
         }
+
+        public void AddUser(User user)
+        {
+            Insert(user);
+            Save();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿@model LoginFormModel
+﻿@using Microsoft.AspNetCore.Mvc.ModelBinding
+@model LoginFormModel
 
 
 @section Title{登录}
@@ -19,50 +20,53 @@
         </div>
 
         <div class="leftcol">
-
+            <div id="error_display" style="background-image: none; background-color: rgba(0, 0, 0, 0.5);"; asp-validation-summary="All">
+            </div>
 
             <div class="checkout_content_box">
                 <div class="loginbox">
-                    <form asp-action="DoLogin" name="logon" id="login_form" style="display: block;">
+                    <form asp-action="Login" name="logon" id="login_form" style="display: block;">
                         <div class="loginbox_left">
-                        <div class="loginbox_content">
-                            <h2>登录</h2>
-                            <p>到现有的 WeBGame 帐户</p>
-                            <br>
+                            <div class="loginbox_content">
+                                <h2>登录</h2>
+                                <p>到现有的 WeBGame 帐户</p>
+                                <br>
 
-                            <div class="login_row">
-                                <div class="input_title">WeBGame 帐户名称</div>
-                                <input class="text_input" asp-for="Account" id="input_username" value="">
+                                <div class="login_row">
+                                    <div class="input_title">WeBGame 帐户名称</div>
+                                    <input class="text_input" asp-for="Account" id="input_username" value="">
+                                </div>
+                                <div class="login_row">
+                                    <div class="input_title">密码</div>
+                                    <input class="text_input" asp-for="Password" type="password" id="input_password" autocomplete="off">
+                                </div>
+                                <div class="login_row">
+                                    <div class="input_title" title="如果您选中此选项，我们会在今后 30 天内自动为您登录，除非您在帐户菜单中选中“注销”。此功能只适用于启用 WeBGame 令牌的帐户。">
+                                        <input type="checkbox" name="remember_login" id="remember_login">
+                                        <label for="remember_login">在这台电脑上记住我</label>
+                                    </div>
+                                </div>
+
+
+                                <noscript>
+                                    <p>使用此站点必须先启用 Javascript</p>
+                                </noscript>
+                                <script>
+                                    document.getElementById('login_form').style.display = 'block';
+                                </script>
                             </div>
-                            <div class="login_row">
-                                <div class="input_title">密码</div>
-                                <input class="text_input" asp-for="Password" type="password" id="input_password" autocomplete="off">
-                            </div>
-                            <div class="login_row">
-                                <div class="input_title" title="如果您选中此选项，我们会在今后 30 天内自动为您登录，除非您在帐户菜单中选中“注销”。此功能只适用于启用 WeBGame 令牌的帐户。">
-                                    <input type="checkbox" name="remember_login" id="remember_login">
-                                    <label for="remember_login">在这台电脑上记住我</label>
+
+                            <div class="btn_ctn">
+                                <div id="login_btn_signin">
+                                    <button type="submit" class="btnv6_blue_hoverfade  btn_medium">
+                                        <span>登录</span>
+                                    </button>
+                                </div>
+                                <div id="login_btn_wait" style="display: none;">
+                                    <img src="https://steamstore-a.akamaihd.net/public/images/login/throbber.gif">
                                 </div>
                             </div>
 
-
-                            <noscript>
-                                <p>使用此站点必须先启用 Javascript</p></noscript>
-                            <script>
-                                document.getElementById('login_form').style.display = 'block';
-                            </script>
-                        </div>
-
-                        <div class="btn_ctn">
-                            <div id="login_btn_signin">
-                                <button type="submit" class="btnv6_blue_hoverfade  btn_medium">
-                                    <span>登录</span>
-                                </button>
-                            </div>
-                            <div id="login_btn_wait" style="display: none;">
-                                <img src="https://steamstore-a.akamaihd.net/public/images/login/throbber.gif">
-                            </div>
-                        </div>
                     </form>
                 </div>
                 <div class="loginbox_sep">
@@ -83,7 +87,7 @@
                         </div>
                     </div>
 
-                    <a target="_top" href="https://store.steampowered.com/join/?&amp;snr=1_60_4__62" class="btnv6_blue_hoverfade btn_medium">
+                    <a target="_top" asp-action="Registration" class="btnv6_blue_hoverfade btn_medium">
                         <span>加入 WeBGame</span>
                     </a>
                 </div>

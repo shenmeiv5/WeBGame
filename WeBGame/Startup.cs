@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -23,7 +24,7 @@ namespace WeBGame
         {
 
             //获取数据库连接字符串
-            var sqlConnectionString = Configuration.GetConnectionString("Default");
+            var sqlConnectionString = Configuration.GetConnectionString("SqlserverConnector");
 
             //添加数据上下文
             services.AddDbContext<WbDbContext>(options =>
@@ -32,7 +33,14 @@ namespace WeBGame
 
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
+            services.AddMvc();
 
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/Authentication/Login";
+                    options.AccessDeniedPath = "/Authenticate/Denied";
+                });
             services.AddMvc();
         }
 
@@ -51,6 +59,7 @@ namespace WeBGame
 
             app.UseStaticFiles();
 
+            app.UseAuthentication();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
