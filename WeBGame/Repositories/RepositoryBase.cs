@@ -102,7 +102,7 @@ namespace WeBGame.Repositories
 
 }
 
-public abstract class RepositoryBase<TEntity> : RepositoryBase<TEntity, long> where TEntity : Entity
+public abstract class RepositoryBase<TEntity> : RepositoryBase<TEntity, int> where TEntity : Entity
 {
     protected RepositoryBase(WbDbContext dbContext) : base(dbContext)
     {

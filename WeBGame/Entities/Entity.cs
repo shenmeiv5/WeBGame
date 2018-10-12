@@ -13,9 +13,9 @@
     }
 
     /// <summary>
-    /// 默认主键类型为Long的实体基类
+    /// 默认主键类型为int的实体基类
     /// </summary>
-    public abstract class Entity:Entity<long>
+    public abstract class Entity:Entity<int>
     {
 
     }
