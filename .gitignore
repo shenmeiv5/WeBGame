@@ -263,3 +263,5 @@ __pycache__/
 images/
 
 lib/
+
+*/appsettings.json
