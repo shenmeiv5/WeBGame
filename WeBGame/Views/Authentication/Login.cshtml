@@ -4,8 +4,9 @@
 
 @section Title{登录}
 @section Header{
-    <link href="/css/login.css" rel="stylesheet" type="text/css"/>
-    <link href="/css/store.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/login.css" rel="stylesheet" type="text/css" />
+    <link href="/css/store.css" rel="stylesheet" type="text/css" />
+    <link href="https://steamstore-a.akamaihd.net/public/shared/css/joinsteam.css?v=.Z2M3hiAsR18G" rel="stylesheet" type="text/css">
 }
 @BodyContent
 <div class="responsive_page_template_content">
@@ -16,11 +17,12 @@
 
         <!-- Center Column -->
 
-        <div id="error_display" class="checkout_error" style="display: none; color: #cc3300">
-        </div>
 
         <div class="leftcol">
-            <div id="error_display" style="background-image: none; background-color: rgba(0, 0, 0, 0.5);"; asp-validation-summary="All">
+            <div id="error_display" style="display: none">
+                @Html.ValidationMessage("LoginFailed")
+                <span asp-validation-for="Account"></span><br />
+                <span asp-validation-for="Password"></span><br />
             </div>
 
             <div class="checkout_content_box">
@@ -132,7 +134,16 @@
     <div style="clear: both;"></div>
 
 </div>
-    <!-- End Main Background -->
+<!-- End Main Background -->
 
+@section Scripts
+    {
+    @if (ViewBag.isValid == false)
+    {
+        <script>
+            document.getElementById("error_display").style.display = "block"
+        </script>
+    }
 
+}
 

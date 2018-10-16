@@ -37,7 +37,11 @@ namespace WeBGame.Controllers
         public IActionResult Login(LoginFormModel form, string returnUrl)
         {
             if (!ModelState.IsValid)
+            {
+                ViewBag.isValid = false;
                 return View("Login");
+            }
+
             User user = _service.GetUser(form.Account, form.Password);
             if (user == null)
             {
