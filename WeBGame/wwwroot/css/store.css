@@ -461,6 +461,7 @@ div#store_search {
 	float: right;
 	padding: 3px 4px 2px;
 	height: 30px;
+    margin-right: 80px;
 }
 
 a#store_search_link {

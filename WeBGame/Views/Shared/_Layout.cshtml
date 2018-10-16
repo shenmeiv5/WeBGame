@@ -147,15 +147,10 @@
 
                     <div id="global_actions">
                         <div id="global_action_menu">
-                            <div class="header_installsteam_btn header_installsteam_btn_green">
-
-                                <a class="header_installsteam_btn_content" asp-controller="/Authentication/Login">
-                                    登录
-                                </a>
-                            </div>
-
-                            @* <a class="global_action_link" href="https://store.steampowered.com/login/?redir=&amp;redir_ssl=1">登录</a> *@
-                            @* &nbsp;|&nbsp; *@
+                            <a class="global_action_link" asp-controller="Authentication/Login">登录</a>
+                            &nbsp;|&nbsp;
+                            <a class="global_action_link" asp-controller="Authentication/Registration">注册</a>
+                        </div>
                         </div>
                     </div>
                 </div>
