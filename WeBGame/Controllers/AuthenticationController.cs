@@ -56,6 +56,7 @@ namespace WeBGame.Controllers
             identity.AddClaim(new Claim(ClaimTypes.Name, user.UserName));
             HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
                 new ClaimsPrincipal(identity));
+            HttpContext.Session.SetString("CurrentUser", user.UserName);
 
             if (returnUrl != null)
                 return Redirect(returnUrl);
