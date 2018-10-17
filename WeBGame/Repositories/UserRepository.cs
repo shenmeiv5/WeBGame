@@ -14,7 +14,10 @@ namespace WeBGame.Repositories
 
         public User GetUser(string username, string password)
         {
-            return _dbContext.Set<User>().FirstOrDefault(it => it.UserName == username && it.Password == password);
+            User user = _dbContext.Set<User>().FirstOrDefault(it => it.UserName == username && it.Password == password);
+            if(user == null)
+                user = _dbContext.Set<User>().FirstOrDefault(it => it.Email == username && it.Password == password);
+            return user;
         }
 
         public void AddUser(User user)

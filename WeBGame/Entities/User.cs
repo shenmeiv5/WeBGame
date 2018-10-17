@@ -45,6 +45,6 @@ namespace WeBGame.Models
         /// <summary>
         /// 用户余额
         /// </summary>
-        public float Balance { get; set; }
+        public double Balance { get; set; }
     }
 }

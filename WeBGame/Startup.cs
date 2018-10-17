@@ -28,12 +28,15 @@ namespace WeBGame
 
             //添加数据上下文
             services.AddDbContext<WbDbContext>(options =>
-                options.UseSqlServer(sqlConnectionString)
-            );
+            {
+                options?.UseSqlServer(sqlConnectionString);
+            });
 
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
             services.AddMvc();
+
+            services.AddSession();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
@@ -58,7 +61,7 @@ namespace WeBGame
             }
 
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseAuthentication();
             app.UseMvc(routes =>
             {
