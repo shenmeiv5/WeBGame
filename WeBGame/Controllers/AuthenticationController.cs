@@ -88,6 +88,7 @@ namespace WeBGame.Controllers
         public IActionResult Logout()
         {
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            HttpContext.Session.Clear();
             return Redirect("Login");
         }
     }
