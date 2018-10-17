@@ -83,5 +83,12 @@ namespace WeBGame.Controllers
             form.Password = user.Password;
             return Login(form, null);
         }
+
+        [HttpGet]
+        public IActionResult Logout()
+        {
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return Redirect("Login");
+        }
     }
 }
