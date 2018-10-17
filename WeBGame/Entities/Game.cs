@@ -10,6 +10,11 @@ namespace WeBGame.Models
         public string GameName { get; set; }
 
         /// <summary>
+        /// 游戏描述
+        /// </summary>
+        public string Description { get; set; }
+
+        /// <summary>
         /// 游戏类型
         /// </summary>
         public string GameType { get; set; }
@@ -37,6 +42,6 @@ namespace WeBGame.Models
         /// <summary>
         /// 游戏评价（好评率
         /// </summary>
-        public float GameEvaluate { get; set; }
+        public double GameEvaluate { get; set; }
     }
 }
