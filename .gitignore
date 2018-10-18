@@ -260,8 +260,11 @@ paket-files/
 __pycache__/
 *.pyc
 
-images/
+*.svg
+*.png
+!logo.png
 
 lib/
 
 */appsettings.json
+
