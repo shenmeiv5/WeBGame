@@ -1,8 +1,10 @@
-var 精选_当前选项 = 0;
+﻿var 精选_当前选项 = 0;
 var 精选_选项 = document.body.getElementsByClassName("精选选项");
 var 精选_面板集合 = document.body.getElementsByClassName("store_main_capsule");
 var 精选_总计面板数 = 精选_面板集合.length;
 var 是否滚动 = true;
+var index = 0;
+var last = 0;
 function 精选_初始化() {
     //在main_capsule类下的screenshot中插入鼠标滑入滑出事件
     //获取控件
@@ -29,6 +31,21 @@ function 精选_初始化() {
         }
     }
 }
+//跳转到指定选项,同时暂停下一轮的滚动(便于onclick)
+function 精选_跳转到(fnow) {
+    
+    精选_当前选项 = fnow;
+    index = fnow;
+    var foc = document.body.getElementsByClassName("focus");
+        foc[0].classList.remove("focus");
+    精选_面板集合[fnow].classList.add("focus");
+    if (foc.length === 2) {
+        foc[1].classList.remove("focus");
+    }
+        精选_选项[fnow].classList.add("focus");
+    //是否滚动 = false;
+    last = fnow;
+}
 function 精选_滚动() {
     setInterval(function () {
         if (是否滚动) {
@@ -41,17 +58,17 @@ function 精选_滚动() {
     }, 10000 / 2);
 }
 //跳转到指定选项,同时暂停下一轮的滚动(便于onclick)
-function 精选_跳转到(fnow) {
-    精选_当前选项 = fnow;
-    var foc = document.body.getElementsByClassName("focus");
-    if (foc.length = 2) {
-        foc[0].classList.remove("focus");
-        精选_面板集合[fnow].classList.add("focus");
-        foc[1].classList.remove("focus");
-        精选_选项[fnow].classList.add("focus");
-    }
-    //是否滚动 = false;
-}
+//function 精选_跳转到(fnow) {
+//    精选_当前选项 = fnow;
+//    var foc = document.body.getElementsByClassName("focus");
+//    if (foc.length = 2) {
+//        foc[0].classList.remove("focus");
+//        精选_面板集合[fnow].classList.add("focus");
+//        foc[1].classList.remove("focus");
+//        精选_选项[fnow].classList.add("focus");
+//    }
+//    //是否滚动 = false;
+//}
 function 精选_当鼠标滑过时变更图片(eventHandler) {
     是否滚动 = false;
     {
@@ -82,6 +99,22 @@ function 精选_当鼠标离开时取消图片(eventHandler) {
     document.getElementsByClassName("focus")[1].classList.remove("focus");
     是否滚动 = true;
 }
+
+
+
+function startAutoPlay() {
+    timer = setInterval(function () {
+        index++;
+        if (index > 12) {
+            index = 0;
+        }
+        精选_跳转到(index)
+    }, 3000);
+}
+
+
 精选_初始化();
 精选_滚动();
+startAutoPlay()
 //# sourceMappingURL=store.js.map
+

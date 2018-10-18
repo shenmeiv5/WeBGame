@@ -23,14 +23,19 @@ namespace WeBGame.Service
             return _gameRepository.GetAllGames();
         }
 
+        public Game GetGameByID(int gameID)
+        {
+            return _gameRepository.GetGame(gameID);
+        }
+
         public List<GameResource> GetResourcesForGame(int gameId)
         {
             return _resourceRepository.GetResourcesForGame(gameId);
         }
 
-        public int GetPriceForGame(int gameId)
+        public GameSales GetSaleForGame(int gameId)
         {
-            return _salesRepository.GetPriceForGame(gameId);
+            return _salesRepository.GetSaleForGame(gameId);
         }
     }
 }

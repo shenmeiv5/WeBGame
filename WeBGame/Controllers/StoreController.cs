@@ -18,28 +18,39 @@ namespace WeBGame.Controllers
 
         public IActionResult Index()
         {
-            List<GameViewModel> gameViewModels = getGameViewModels();
+            List<GameViewModel> gameViewModels = GetGameViewModels();
             return View("Store", gameViewModels);
         }
 
-        public IActionResult Good(long id)
+        public IActionResult Good(int ig)
         {
-            Game game = new Game();
-            return View("Good");
+            GameViewModel gameView = GetGameViewModel(ig);
+            if (gameView == null)
+                return Index();
+            return View("Good", gameView);
         }
 
-        private List<GameViewModel> getGameViewModels()
+        private List<GameViewModel> GetGameViewModels()
         {
             List<Game> games = _service.GetGames();
             List<GameViewModel> gameViewModels = new List<GameViewModel>();
             foreach (var game in games)
             {
-                List<GameResource> resources = _service.GetResourcesForGame(game.Id);
-                int price = _service.GetPriceForGame(game.Id);
-                gameViewModels.Add(new GameViewModel(game, resources, price));
+                gameViewModels.Add(GetGameViewModel(game.Id, game));
             }
 
             return gameViewModels;
+        }
+
+        private GameViewModel GetGameViewModel(int gameID, Game g = null)
+        {
+            Game game = g ?? _service.GetGameByID(gameID);
+            if (game == null)
+                return null;
+            List<GameResource> resources = _service.GetResourcesForGame(gameID);
+            GameSales sales = _service.GetSaleForGame(gameID);
+            GameViewModel gameViewModel = new GameViewModel(game, resources, (int)sales.SalePrice, sales.SaleDiscount);
+            return gameViewModel;
         }
     }
 }

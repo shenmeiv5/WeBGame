@@ -9,9 +9,9 @@ namespace WeBGame.Repositories
         {
         }
 
-        public int GetPriceForGame(int gameId)
+        public GameSales GetSaleForGame(int gameId)
         {
-            return (int)GetEntity(it => it.Id == gameId).SalePrice;
+            return GetEntity(it => it.Id == gameId);
         }
     }
 }

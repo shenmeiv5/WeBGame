@@ -4,6 +4,6 @@ namespace WeBGame.Repositories
 {
     public interface ISalesRepository:IRepository<GameSales>
     {
-        int GetPriceForGame(int gameId);
+        GameSales GetSaleForGame(int gameId);
     }
 }
