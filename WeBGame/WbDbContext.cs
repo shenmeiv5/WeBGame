@@ -16,6 +16,7 @@ namespace WeBGame
         public DbSet<User> User { get; set; }
         public DbSet<Game> Game { get; set; }
         public DbSet<GameResource> GameResource { get; set; }
+        public DbSet<GameSales> GameSale { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -8,21 +8,21 @@
         <h2 class="test">精选</h2>
         <div id="home_maincap_v7" class="carousel_container maincap">
             <div class="carousel_items">
-                @foreach (var gameView in Model)
+                @for (int i=0; i<Model.Count; i++)
                 {
-                    <a class="store_main_capsule broadcast_capsule app_impression_tracked" data-manual-tracking="1" data-ds-appid="750920" href="http://localhost:8000/Store/Good?id=@gameView.Game.Id" data-ds-tagids="[21,19,21722,7208,1742]" data-ds-descids="[2,5]">
-                        @{ List<GameResource> resources = gameView.Resources; }
+                    <a class="store_main_capsule broadcast_capsule app_impression_tracked" data-manual-tracking="1" data-ds-appid="750920" href="http://localhost:8000/Store/Good?game=@Model[i].Game.Id" data-ds-tagids="[21,19,21722,7208,1742]" data-ds-descids="[2,5]">
+                        @{ List<GameResource> resources = Model[i].Resources; }
                         <div class="capsule main_capsule" data-background-image-url="@resources[0].ImageAddr" style="background-image: url(&quot;@resources[0].ImageAddr&quot;);">
-                            @for (int i = 1; i < resources.Count; i++)
+                            @for (int j = 1; j < resources.Count; j++)
                             {
-                                <div class="screenshot" data-background-image-url="@resources[i].ImageAddr" style="background-image: url(&quot;@resources[i].ImageAddr&quot;);"></div>
+                                <div class="screenshot" data-background-image-url="@resources[j].ImageAddr" style="background-image: url(&quot;@resources[j].ImageAddr&quot;);"></div>
                             }
                         </div>
                         <div class="info">
                             <div class="app_name">
-                                <div>@gameView.Game.GameName</div>
+                                <div>@Model[i].Game.GameName</div>
                             </div>
-                            <div class="screenshots">@for (int i = 1; i < resources.Count; i++){<div><div data-background-image-url="@resources[i].ImageAddr" style="background-image: url(&quot;@resources[i].ImageAddr&quot;);"></div> </div>}
+                            <div class="screenshots">@for (int j = 1; j < resources.Count; j++){<div><div data-background-image-url="@resources[j].ImageAddr" style="background-image: url(&quot;@resources[j].ImageAddr&quot;);"></div> </div>}
                             </div>
                             <div class="reason">
                                 <div class="main default">现已推出</div>
@@ -31,7 +31,7 @@
                                 </div>
                             </div>
                             <div class="discount_block  no_discount discount_block_inline"> 
-                                <div class="discount_prices"><div class="discount_final_price">¥ 379</div></div>
+                                <div class="discount_prices"><div class="discount_final_price">¥ @Model[i].Price</div></div>
                             </div>
                             <div class="platforms">
                                 <span class="platform_img win"></span>

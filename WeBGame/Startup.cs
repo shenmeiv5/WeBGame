@@ -37,6 +37,7 @@ namespace WeBGame
             services.AddScoped<IGameRepository, GameRepository>();
             services.AddScoped<IGameService, GameService>();
             services.AddScoped<IGameResourceRepository, GameResourceRepository>();
+            services.AddScoped<ISalesRepository, SalesRepository>();
             services.AddMvc();
 
             services.AddSession();

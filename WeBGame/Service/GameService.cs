@@ -9,11 +9,13 @@ namespace WeBGame.Service
 
         private readonly IGameRepository _gameRepository;
         private readonly IGameResourceRepository _resourceRepository;
+        private readonly ISalesRepository _salesRepository;
 
-        public GameService(IGameRepository gameRepository, IGameResourceRepository resourceRepository)
+        public GameService(IGameRepository gameRepository, IGameResourceRepository resourceRepository, ISalesRepository salesRepository)
         {
             _gameRepository = gameRepository;
             _resourceRepository = resourceRepository;
+            _salesRepository = salesRepository;
         }
 
         public List<Game> GetGames()
@@ -21,9 +23,14 @@ namespace WeBGame.Service
             return _gameRepository.GetAllGames();
         }
 
-        public List<GameResource> GetResourcesForGame(long gameId)
+        public List<GameResource> GetResourcesForGame(int gameId)
         {
             return _resourceRepository.GetResourcesForGame(gameId);
+        }
+
+        public int GetPriceForGame(int gameId)
+        {
+            return _salesRepository.GetPriceForGame(gameId);
         }
     }
 }

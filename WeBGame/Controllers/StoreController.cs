@@ -35,7 +35,8 @@ namespace WeBGame.Controllers
             foreach (var game in games)
             {
                 List<GameResource> resources = _service.GetResourcesForGame(game.Id);
-                gameViewModels.Add(new GameViewModel(game, resources));
+                int price = _service.GetPriceForGame(game.Id);
+                gameViewModels.Add(new GameViewModel(game, resources, price));
             }
 
             return gameViewModels;

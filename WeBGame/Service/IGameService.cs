@@ -9,6 +9,7 @@ namespace WeBGame.Service
     public interface IGameService
     {
         List<Game> GetGames();
-        List<GameResource> GetResourcesForGame(long gameId);
+        List<GameResource> GetResourcesForGame(int gameId);
+        int GetPriceForGame(int gameId);
     }
 }
